@@ -6,23 +6,20 @@ namespace PerssonnummerCheckare
     {
         static void Main(string[] args)
         {
-            
+             
             Console.WriteLine("*****************************");                         
             Console.WriteLine("*Skriv in ditt perssonnummer*");
             Console.WriteLine("*****************************");
-            string userinput = "";
-            double Perssonnummer = 0;
-            userinput = Console.ReadLine();
-            Perssonnummer = double.Parse(userinput);
-            
-            if (Perssonnummer < 175301010101 || Perssonnummer > 202001010101)
+            string Perssonnummer = "";
+            Perssonnummer = Console.ReadLine();            
+            string År = Perssonnummer.Substring(0, 4);
+            double ÅrNummer = Convert.ToInt32(År);
+            if (ÅrNummer < 1753)
             {
-                Console.WriteLine("Men Vafan då detta är ju inte möjligt");
-                
+                Console.WriteLine("För litet nummer!");
             }
 
             Console.ReadKey();
-        
         }
         
         
