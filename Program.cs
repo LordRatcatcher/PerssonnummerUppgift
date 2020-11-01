@@ -6,11 +6,12 @@ namespace PerssonnummerCheckare
     {
         static void Main(string[] args)
         {
-
+            
             Console.WriteLine("*****************************");
             Console.WriteLine("*Skriv in ditt perssonnummer*");
             Console.WriteLine("*****************************");
             string Perssonnummer = "";
+            YearCalculator.CalculateLeapYear();
             //create string Perssonnummer//                        
             Perssonnummer = Console.ReadLine();
             //Declare the index numbers of Perssonnumber for each use//
@@ -26,8 +27,8 @@ namespace PerssonnummerCheckare
             string GenderCheck = Perssonnummer.Substring(10, 1);
             double GenderCheckNumber = Convert.ToInt32(GenderCheck);
             
-          
-            
+
+
 
             //If statements to check for incorrect inputs//
             if (YearNumber < 1753 || YearNumber > 2020)
@@ -42,6 +43,7 @@ namespace PerssonnummerCheckare
             {
                 Console.WriteLine("För sent datum");
             }
+            //If statement that only activates if it is a leap year//
             if (LeapYearCheck == true)
             {
                 if (DayNumber > 29 && MonthNumber == 02)
@@ -95,7 +97,12 @@ namespace PerssonnummerCheckare
             if (DayNumber > 31 || DayNumber < 1 && MonthNumber == 12)
             {
                 Console.WriteLine("Dåligt Datum");
-            }                        
+            }
+            if (LastPartNumbers > 999 || LastPartNumbers < 001)
+            {
+                Console.WriteLine("Men vafan då");
+            }
+            //Checking if it is a man or a woman//
             Console.WriteLine("Ditt Perssonnummer är acceptabelt!");
             if (GenderCheckNumber == 0 || GenderCheckNumber == 2 || GenderCheckNumber == 4 || GenderCheckNumber == 6 || GenderCheckNumber == 8)
             {
@@ -103,31 +110,41 @@ namespace PerssonnummerCheckare
             }
             if (GenderCheckNumber == 1 || GenderCheckNumber == 3 || GenderCheckNumber == 5 || GenderCheckNumber == 7 || GenderCheckNumber == 9)
             {
+               //printing out the needed information//
                 Console.WriteLine("Ditt Juridiska kön är man");
             }   
-                Console.ReadKey();
+            
+            Console.ReadKey();
         }
-        //Calculating if the year is a leap year and returning a bool true if it is//
-        public static bool CalculateLeapYear(double YearNumber, bool LeapYearCheck)
-        {
-
-
-            if (((YearNumber % 4 == 0) && (YearNumber % 100 != 0)) || (YearNumber % 400 == 0))
+        public class YearCalculator
+        { 
+        //Calculating if the year is a leap year and returning a 1 if it is true//
+         public static double CalculateLeapYear()
+         {
+                //having to type it in twice, need help with this//
+                string Perssonnummer = "";
+                Perssonnummer = Console.ReadLine();
+                string Year = Perssonnummer.Substring(0, 4);
+                double YearNumber = Convert.ToInt32(Year);
+                Console.WriteLine("Skriv in ditt personnummer igen!");
+                int LeapYearCheck = 0;
+                if (((YearNumber % 4 == 0) && (YearNumber % 100 != 0)) || (YearNumber % 400 == 0))
             {
-                Console.WriteLine("Det är ett skottår!");
-                LeapYearCheck = true;
+                    
+                
+                    LeapYearCheck = 1;
                 return LeapYearCheck;
                 
             }
             else 
             {
-                LeapYearCheck = false;
+                    LeapYearCheck = 0;
                 return LeapYearCheck;
 
             }
 
 
+         }
         }
-        
     }
 }
