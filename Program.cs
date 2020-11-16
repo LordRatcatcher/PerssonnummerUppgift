@@ -10,105 +10,129 @@ namespace PerssonnummerCheckare
             Console.WriteLine("*****************************");
             Console.WriteLine("*Skriv in ditt perssonnummer*");
             Console.WriteLine("*****************************");
-            string Perssonnummer = "";
-            YearCalculator.CalculateLeapYear();
+            string perssonNummer = "";
+            yearCalculator.CalculateLeapYear();
             //create string Perssonnummer//                        
-            Perssonnummer = Console.ReadLine();
+            perssonNummer = Console.ReadLine();
             //Declare the index numbers of Perssonnumber for each use//
-            string Year = Perssonnummer.Substring(0, 4);
-            double YearNumber = Convert.ToInt32(Year);
-            string Month = Perssonnummer.Substring(4, 2);
-            double MonthNumber = Convert.ToInt32(Month);
-            string Day = Perssonnummer.Substring(6, 2);
+            string Year = perssonNummer.Substring(0, 4);
+            double yearNumber = Convert.ToInt32(Year);
+            string Month = perssonNummer.Substring(4, 2);
+            double monthNumber = Convert.ToInt32(Month);
+            string Day = perssonNummer.Substring(6, 2);
             double DayNumber = Convert.ToInt32(Day);
-            string LastPart = Perssonnummer.Substring(8, 4);
+            string LastPart = perssonNummer.Substring(8, 4);
             double LastPartNumbers = Convert.ToInt32(LastPart);
-            bool LeapYearCheck = false;
-            string GenderCheck = Perssonnummer.Substring(10, 1);
-            double GenderCheckNumber = Convert.ToInt32(GenderCheck);
-            
+            bool leapYearCheck = false;
+            string genderCheck = perssonNummer.Substring(10, 1);
+            double genderCheckNumber = Convert.ToInt32(genderCheck);
+            int validNumber = 1;
 
 
 
             //If statements to check for incorrect inputs//
-            if (YearNumber < 1753 || YearNumber > 2020)
+            if (yearNumber < 1753 || yearNumber > 2020)
             {
-                Console.WriteLine("För litet nummer!");
+                Console.WriteLine("Inte giltigt år");
+                validNumber = 0;
             }
-            if (MonthNumber > 12 || MonthNumber <= 0)
+            if (monthNumber > 12 || monthNumber <= 0)
             {
-                Console.WriteLine("inte giltig månad");
+                Console.WriteLine("Inte giltig månad");
+                validNumber = 0;
             }
-            if (DayNumber > 31 && MonthNumber == 01)
+            if (DayNumber > 31 && monthNumber == 01)
             {
-                Console.WriteLine("För sent datum");
+                Console.WriteLine("Inte giltigt datum");
+                validNumber = 0;
             }
             //If statement that only activates if it is a leap year//
-            if (LeapYearCheck == true)
+            if (leapYearCheck == true)
             {
-                if (DayNumber > 29 && MonthNumber == 02)
+                if (DayNumber > 29 && monthNumber == 02)
                 {
-                    Console.WriteLine("Något om skottår");
+                    Console.WriteLine("Inte giltigt datum");
+                    validNumber = 0;
                 }
             }
-            if (LeapYearCheck == false)
+            if (leapYearCheck == false)
             {
-                if (DayNumber > 28 || DayNumber < 1 && MonthNumber == 02)
+                if (DayNumber > 28 || DayNumber < 1 && monthNumber == 02)
                 {
-                    Console.Write("Dåligt Datum");
+                    Console.Write("Inte giltigt datum");
+                    validNumber = 0;
+
                 }
             }
-            if (DayNumber > 31 || DayNumber < 1 && MonthNumber == 03)
+            if (DayNumber > 31 || DayNumber < 1 && monthNumber == 03)
             {
-                Console.WriteLine("Dåligt Datum");
+                Console.WriteLine("Inte giltigt datum");
+                validNumber = 0;
             }
-            if (DayNumber > 30 || DayNumber < 1 && MonthNumber == 04)
+            if (DayNumber > 30 || DayNumber < 1 && monthNumber == 04)
             {
-                Console.WriteLine("Dåligt Datum");
+                Console.WriteLine("Inte giltigt datum");
+                validNumber = 0;
             }
-            if (DayNumber > 31 || DayNumber < 1 && MonthNumber == 05)
+            if (DayNumber > 31 || DayNumber < 1 && monthNumber == 05)
             {
-                Console.WriteLine("Dåligt Datum");
+                Console.WriteLine("Inte giltigt datum");
+                validNumber = 0;
             }
-            if (DayNumber > 30 || DayNumber < 1 && MonthNumber == 06)
+            if (DayNumber > 30 || DayNumber < 1 && monthNumber == 06)
             {
-                Console.WriteLine("Dåligt Datum");
+                Console.WriteLine("Inte giltigt datum");
+                validNumber = 0;
             }
-            if (DayNumber > 31 || DayNumber < 1 && MonthNumber == 07)
+            if (DayNumber > 31 || DayNumber < 1 && monthNumber == 07)
             {
-                Console.WriteLine("Dåligt Datum");
+                Console.WriteLine("Inte giltigt datum");
+                validNumber = 0;
             }
-            if (DayNumber > 31 || DayNumber < 1 && MonthNumber == 08) 
+            if (DayNumber > 31 || DayNumber < 1 && monthNumber == 08) 
             {
-                Console.WriteLine("Dåligt Datum");
+                Console.WriteLine("Inte giltigt datum");
+                validNumber = 0;
             }
-            if (DayNumber > 30 || DayNumber < 1 && MonthNumber == 09)
+            if (DayNumber > 30 || DayNumber < 1 && monthNumber == 09)
             {
-                Console.WriteLine("Dåligt Datum");
+                Console.WriteLine("Inte giltigt datum");
+                validNumber = 0;
             }
-            if (DayNumber > 31 || DayNumber < 1 && MonthNumber == 10)
+            if (DayNumber > 31 || DayNumber < 1 && monthNumber == 10)
             {
-                Console.WriteLine("Dåligt Datum");
+                Console.WriteLine("Inte giltigt datum");
+                validNumber = 0;
             }
-            if (DayNumber > 30 || DayNumber < 1 && MonthNumber == 11)
+            if (DayNumber > 30 || DayNumber < 1 && monthNumber == 11)
             {
-                Console.WriteLine("Dåligt Datum");
+                Console.WriteLine("Inte giltigt datum");
+                validNumber = 0;
             }
-            if (DayNumber > 31 || DayNumber < 1 && MonthNumber == 12)
+            if (DayNumber > 31 || DayNumber < 1 && monthNumber == 12)
             {
-                Console.WriteLine("Dåligt Datum");
+                Console.WriteLine("Inte giltigt datum");
+                validNumber = 0;
             }
-            if (LastPartNumbers > 999 || LastPartNumbers < 001)
+            if (LastPartNumbers > 9999 || LastPartNumbers < 0001)
             {
-                Console.WriteLine("Men vafan då");
+                Console.WriteLine("Dina sista 4 siffror är inte giltiga");
+                validNumber = 0;
             }
-            //Checking if it is a man or a woman//
-            Console.WriteLine("Ditt Perssonnummer är acceptabelt!");
-            if (GenderCheckNumber == 0 || GenderCheckNumber == 2 || GenderCheckNumber == 4 || GenderCheckNumber == 6 || GenderCheckNumber == 8)
+            if (validNumber == 1)
+            {
+                Console.WriteLine("Ditt Perssonnummer är acceptabelt!");
+            }
+            else if (validNumber == 0)
+            {
+                Console.WriteLine("Ditt personnummer är inte acceptabelt");
+            }
+            //Checking if it is a man or a woman//           
+            if (genderCheckNumber == 0 || genderCheckNumber == 2 || genderCheckNumber == 4 || genderCheckNumber == 6 || genderCheckNumber == 8)
             {
                 Console.WriteLine("Ditt Juridiska kön är kvinna");
             }
-            if (GenderCheckNumber == 1 || GenderCheckNumber == 3 || GenderCheckNumber == 5 || GenderCheckNumber == 7 || GenderCheckNumber == 9)
+            if (genderCheckNumber == 1 || genderCheckNumber == 3 || genderCheckNumber == 5 || genderCheckNumber == 7 || genderCheckNumber == 9)
             {
                //printing out the needed information//
                 Console.WriteLine("Ditt Juridiska kön är man");
@@ -116,7 +140,7 @@ namespace PerssonnummerCheckare
             
             Console.ReadKey();
         }
-        public class YearCalculator
+        public class yearCalculator
         { 
         //Calculating if the year is a leap year and returning a 1 if it is true//
          public static double CalculateLeapYear()
@@ -125,21 +149,21 @@ namespace PerssonnummerCheckare
                 string Perssonnummer = "";
                 Perssonnummer = Console.ReadLine();
                 string Year = Perssonnummer.Substring(0, 4);
-                double YearNumber = Convert.ToInt32(Year);
+                double yearNumber = Convert.ToInt32(Year);
                 Console.WriteLine("Skriv in ditt personnummer igen!");
-                int LeapYearCheck = 0;
-                if (((YearNumber % 4 == 0) && (YearNumber % 100 != 0)) || (YearNumber % 400 == 0))
+                int leapYearCheck = 0;
+                if (((yearNumber % 4 == 0) && (yearNumber % 100 != 0)) || (yearNumber % 400 == 0))
             {
                     
                 
-                    LeapYearCheck = 1;
-                return LeapYearCheck;
+                    leapYearCheck = 1;
+                return leapYearCheck;
                 
             }
             else 
             {
-                    LeapYearCheck = 0;
-                return LeapYearCheck;
+                    leapYearCheck = 0;
+                return leapYearCheck;
 
             }
 
